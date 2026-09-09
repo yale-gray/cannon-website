@@ -1,10 +1,10 @@
 # Cannon Gray — Architecture & Exploration
 
-A responsive resume and architecture portfolio for Cannon Gray, built with React, TypeScript, Vinext, and Sites. The design uses warm neutral surfaces, system typography, large project photography, and a translucent navigation bar.
+A responsive resume and architecture portfolio for Cannon Gray, built with Next.js, React, and TypeScript. The design uses warm neutral surfaces, system typography, large project photography, and a translucent navigation bar.
 
 ## Develop
 
-Requires Node.js 22.13 or newer.
+Requires Node.js 22.13+ or 24.
 
 ```sh
 npm ci
@@ -14,11 +14,21 @@ npm run dev
 ## Validate and build
 
 ```sh
-npx tsc --noEmit
+npm run typecheck
 npm run build
 ```
 
-The build produces a Cloudflare Worker and static assets under `dist/`. Sites deployment configuration lives in `.openai/hosting.json`.
+The build produces a standard Next.js application in `.next/`.
+
+## Deploy to Vercel
+
+1. Sign in at https://vercel.com/new and import `yale-gray/cannon-website`.
+2. Use the **Next.js** framework preset and leave **Root Directory** at `./` (the repository root).
+3. Leave build and output settings at their detected defaults, then select **Deploy**.
+
+No environment variables or external services are required. Vercel supplies the production hostname for social-preview URLs automatically. If you add a custom domain, optionally set `NEXT_PUBLIC_SITE_URL` to its complete HTTPS URL and redeploy.
+
+Pushing to `main` triggers production deployments once the GitHub repository is connected to Vercel. The earlier Sites deployment is independent and is not updated by this project.
 
 ## Content
 
